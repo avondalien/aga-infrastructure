@@ -39,3 +39,10 @@ resource "aws_organizations_account" "dev_account" {
     parent_id = aws_organizations_organizational_unit.dev.id
     role_name = "OrganizationAccountAccessRole"
 }
+
+locals {
+    accounts = {
+        dev = aws_organizations_account.dev_account.id,
+        prod = aws_organizations_account.dev_account.id
+    }
+}
